@@ -17,6 +17,7 @@
 * The service is solely responsible for high performance and availability
 * The service will leverage Cosmos DB with Document API for high performance and availability
 * The owner of the service may decide to implement a caching strategy in case of performance issues detected
+* During the transition period from Legacy to SaaS implementation, authorization data will be replicated from the legacy db
 
 ## End-points
 
