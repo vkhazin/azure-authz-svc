@@ -73,8 +73,14 @@ Body:
   "correlationId": "UUID",
   "timestamp": "date-time"
   "roles": [
-    { "key-1": false },
-    { "key-2": true },
+        {
+            "key": "schedule-pickup",
+            "isAuthorized": false
+        },
+        {
+            "key": "dispatechers",
+            "isAuthorized": true
+        }
   ]
 }
 ```
