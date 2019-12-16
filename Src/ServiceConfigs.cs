@@ -9,9 +9,9 @@ namespace AzureAuthorizationFunctionApp
     public static class ServiceConfigs
     {
 #if DEBUG
-        public static string CosmosDbEndpointUri = "https://azureauthorizationdb.documents.azure.com:443/";
-        public static string CosmosDbPrimaryKey = "ICypx556zh5SKUlK90g8e7nRksdHCeFUHq7fU9yGJJB1KGP3ZgVmbtwXMNVYu7xJJugVs6JnYwbtt27U4pXZ6w==";
-        public static string CosmosDbDatabaseId = "AZAuthorizationModel";
+        public static string CosmosDbEndpointUri = "<to be replaced as per the environment setup>";
+        public static string CosmosDbPrimaryKey = "<to be replaced as per the environment setup>";
+        public static string CosmosDbDatabaseId = "<to be replaced as per the environment setup>";
         public static string RolesContainerId = "Roles";
         public static string UsersContainerId = "Users";
         public static string UserRolesPermissionsContainerId = "UserRolesPermissions";
