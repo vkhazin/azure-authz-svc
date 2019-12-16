@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 
-
 namespace AzureAuthorizationFunctionApp.Models
 {
-    /// <summary>A class to model the response of Azure Function Permissions</summary>
-    public class UserPermissionsResponseModel
+    /// <summary>A class to model the response of Roles Azure function</summary>
+    public class UserRolesResponseModel
     {
         /// <summary>Gets or sets the user identifier.</summary>
         /// <value>The user identifier.</value>
@@ -18,8 +17,8 @@ namespace AzureAuthorizationFunctionApp.Models
         /// <value>The timestamp.</value>
         public string Timestamp { get; set; }
 
-        /// <summary>Gets or sets the list of permissions.</summary>
-        /// <value>The permissions.</value>
-        public IList<PermissionResponseModel> Permissions { get; set; }
+        /// <summary>Gets or sets the roles.</summary>
+        /// <value>The roles.</value>
+        public IList<RoleResponseModel> Roles { get; set; }
     }
 }

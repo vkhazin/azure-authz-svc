@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureAuthorizationFunctionApp.Functions
 {
+    /// <summary>Base class for Roles Azure Function</summary>
     public static class Roles
     {
         [FunctionName("Roles")]
@@ -29,20 +30,22 @@ namespace AzureAuthorizationFunctionApp.Functions
                 return new BadRequestObjectResult($"Missing parameters. Correlation ID: {correlationId}");
             }
 
-
             try
             {
                 var userDetails = await AzTokenController.Instance.GetTokenDetails(accessToken);
-                var isValidAccessToken = userDetails != null && !string.IsNullOrEmpty(userDetails.userPrincipalName);
+                var isValidAccessToken = userDetails != null && !string.IsNullOrEmpty(userDetails.UserPrincipalName);
 
                 if (!isValidAccessToken)
                 {
-                    // Should return 401 
-                    return new BadRequestObjectResult($"Invalid access token provided. Correlation ID: {correlationId}");
+                    return new ObjectResult($"Invalid access token provided. Correlation ID: {correlationId}")
+                    {
+                        StatusCode = StatusCodes.Status401Unauthorized,
+                    };
                 }
 
+                var cosmosDbController = new CosmosDbController(log);
 
-                var userRolesPermissions = await CosmosDbController.Instance.GetUserRolesPermissions(userDetails);
+                var userRolesPermissions = await cosmosDbController.GetUserRolesPermissions(userDetails);
 
                 if (userRolesPermissions == null)
                     return new OkObjectResult("No permissions defined for the specified token"); // Should return 401 
@@ -51,19 +54,18 @@ namespace AzureAuthorizationFunctionApp.Functions
 
                 var response = new UserRolesResponseModel()
                 {
-                    UserId = userRolesPermissions.key,
+                    UserId = userRolesPermissions.Key,
                     CorrelationId = correlationId,
                     Timestamp = DateTime.Now.ToString(CultureInfo.InvariantCulture),
-                    Roles = new List<RoleModel>()
+                    Roles = new List<RoleResponseModel>()
                 };
 
                 foreach (var role in inputRoles)
                 {
-                    response.Roles.Add(userRolesPermissions.Roles.Any(g => g.key == role)
-                        ? new RoleModel { Key = role, IsAuthorized = true }
-                        : new RoleModel { Key = role, IsAuthorized = false });
+                    response.Roles.Add(userRolesPermissions.Roles.Any(g => g.Key == role)
+                        ? new RoleResponseModel { Key = role, IsAuthorized = true }
+                        : new RoleResponseModel { Key = role, IsAuthorized = false });
                 }
-
 
                 return new JsonResult(response);
             }

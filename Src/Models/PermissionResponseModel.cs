@@ -1,6 +1,6 @@
 ﻿namespace AzureAuthorizationFunctionApp.Models
 {
-    public abstract class PermissionModel
+    public class PermissionResponseModel
     {
         public string Key { get; set; }
 
