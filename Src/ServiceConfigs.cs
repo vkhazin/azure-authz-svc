@@ -5,6 +5,7 @@ using Microsoft.Azure.Cosmos;
 
 namespace AzureAuthorizationFunctionApp
 {
+    /// <summary>A class to store Service config values</summary>
     public static class ServiceConfigs
     {
 #if DEBUG
@@ -16,13 +17,17 @@ namespace AzureAuthorizationFunctionApp
         public static string UserRolesPermissionsContainerId = "UserRolesPermissions";
 
 #else
-        public static string CosmosDbEndpointUri =  Environment.GetEnvironmentVariable("CosmosDbEndpointUri");
+public static string CosmosDbEndpointUri =  Environment.GetEnvironmentVariable("CosmosDbEndpointUri");
         public static string CosmosDbPrimaryKey =  Environment.GetEnvironmentVariable("CosmosDbPrimaryKey");
         public static string CosmosDbDatabaseId = Environment.GetEnvironmentVariable("CosmosDbDatabaseId");
         public static string RolesContainerId = Environment.GetEnvironmentVariable("RolesContainerId");
         public static string UsersContainerId = Environment.GetEnvironmentVariable("UsersContainerId");
-        public static string UserRolesPermissionsContainerId = Environment.GetEnvironmentVariable("UserRolesContainerId");
-
+        public static string UserRolesPermissionsContainerId = Environment.GetEnvironmentVariable("UserRolesPermissionsContainerId");
 #endif
+
+
+
+
+
     }
 }
