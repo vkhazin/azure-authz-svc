@@ -12,5 +12,5 @@ az functionapp create --resource-group $nameResourceGroup \
 az functionapp cors remove -g $nameResourceGroup -n $nameFunction --allowed-origins
 
 az functionapp cors add --name $nameFunction \
---resource-group authpoc-resource-group \
+--resource-group $nameResourceGroup \
 --allowed-origins "*"
