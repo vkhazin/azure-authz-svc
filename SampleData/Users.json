@@ -1,0 +1,29 @@
+[{
+    "key": "Xuser@mahmoudabdelhakeemoutlook.onmicrosoft.com",
+    "version": 1,
+    "roles": [
+        {
+            "key": "call-takers"
+        },
+        {
+            "key": "dispatechers"
+        }
+    ],
+    "created": "12.12.2019",
+    "modified": "12.12.2019"
+},
+{
+    "key": "yuser@mahmoudabdelhakeemoutlook.onmicrosoft.com",
+    "version": 1,
+    "roles": [
+        {
+            "key": "call-takers"
+        },
+        {
+            "key": "dispatechers"
+        }
+    ],
+    "created": "12.12.2019",
+    "modified": "12.12.2019"
+}
+]

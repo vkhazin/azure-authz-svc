@@ -1,0 +1,15 @@
+Setup:
+1- Create Azure CosmosDB 
+2- Create the required three containers (Roles, Users, and UserRolesPermissions)
+3- Get the cosmos DB details >> browse to the created cosmos Db >> Keys 
+4- Copy the config values (URI and PRIMARY KEY) to be stored to the Azure Function App
+5- Create an Azure Function Application 
+6- Navigate to Azure Function app >> Configuration
+
+CosmosDbDatabaseId >> cosmos database name 
+CosmosDbEndpointUri, >> Keys >> URI 
+CosmosDbPrimaryKey, >> keys >> PRIMARY KEY
+RolesContainerId, >> Roles
+UserRolesPermissionsContainerId, >> UserRolesPermissions
+UsersContainerId >> Users
+Make sure to click Save
