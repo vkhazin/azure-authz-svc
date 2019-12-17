@@ -156,7 +156,6 @@ chmod +x ./automation/*
 
 ## ToDo:
 
-1. Misconfigured Uri should be error code 500 not 400
-1. unit tests
-1. Should missing `correlationId` generate a 400 error
-1. missing x-access-token should generate 401 error
+1. AuthZ payload timestamp non-standard format!
+1. unit tests not running on linux
+1. Should missing `correlationId` generate a 400 error?
