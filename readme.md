@@ -95,8 +95,6 @@ Body:
 
 ### Cosmos DB Setup
 
-[Template](./automation/cosmos-db.arm)
-
 1. Create Azure Cosmos DB Sql in the same region where plan to deploy the function
 1. Type a unique name e.g. starting with the organization and the env name e.g. `trgos-poc-authzdb`
 1. Networking: `All networks`
