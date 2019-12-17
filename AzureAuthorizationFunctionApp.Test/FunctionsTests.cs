@@ -21,7 +21,7 @@ namespace AzureAuthorizationFunctionApp.Test
             Assert.Equal($"Missing Access Token. Correlation ID: {correlationId}", response.Value);
         }
 
-        /// <summary>  Verify if Roles Function should missing parameters validation.</summary>
+        /// <summary>  Verify if Roles Function should return missing parameters validation.</summary>
         [Fact]
         public async void Roles_should_return_missing_parameters()
         {
