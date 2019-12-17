@@ -2,3 +2,5 @@
 Src/Properties/PublishProfiles/AzAuthentication - Web Deploy.pubxml
 Src/Properties/PublishProfiles/AZAuthorization - Web Deploy.pubxml
 *.pubxml
+bin
+obj
