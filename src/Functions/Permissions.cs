@@ -21,12 +21,23 @@ namespace AzureAuthorizationFunctionApp.Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "Permissions/{parameter}")] HttpRequest req,
             string parameter, ILogger log)
         {
-            var correlationId = req.Headers.Any(r => r.Key == "x-correlation-id") ? req.Headers["x-correlation-id"].ToString() : string.Empty;
+            var correlationId = req.Headers.Any(r => r.Key == "x-correlation-id")
+                ? req.Headers["x-correlation-id"].ToString()
+                : string.Empty;
 
-            var accessToken = req.Headers.Any(r => r.Key == "x-access-token") ? req.Headers["x-access-token"].ToString() : string.Empty;
+            var accessToken = req.Headers.Any(r => r.Key == "x-access-token")
+                ? req.Headers["x-access-token"].ToString()
+                : string.Empty;
 
-            if (string.IsNullOrEmpty(parameter)
-                || string.IsNullOrEmpty(accessToken))
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return new ObjectResult($"Missing Access Token. Correlation ID: {correlationId}")
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                };
+            }
+
+            if (string.IsNullOrEmpty(parameter))
             {
                 return new BadRequestObjectResult($"Missing parameters. Correlation ID: {correlationId}");
             }
@@ -76,7 +87,11 @@ namespace AzureAuthorizationFunctionApp.Functions
             catch (Exception exception)
             {
                 log.LogError(exception.ToString());
-                return new BadRequestObjectResult($"Error occured. Please contact the system administrator. Correlation ID: {correlationId}");
+                return new ObjectResult(
+                    $"Error occured. Please contact the system administrator. Correlation ID: {correlationId}")
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                };
             }
 
         }
