@@ -1,10 +1,10 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using AzureAuthorizationFunctionApp.Models;
+using Newtonsoft.Json;
 
-namespace AzureAuthorizationFunctionApp.Controllers
+namespace AzureAuthorizationFunctionApp.Utilities
 {
     /// <summary>A class to manage Azure Token functions</summary>
     public class AzTokenController
