@@ -1,0 +1,42 @@
+[{
+  "key": "Admin",
+  "version": 1,
+  "permissions": [
+    {
+      "key": "schedule-pickup"
+    },
+    {
+      "key": "update-run"
+    }
+  ],
+  "created": "2019-12-12T00:00:00-05:00",
+  "modified": "2019-12-12T00:00:00-05:00"
+},
+{
+  "key": "Power User",
+  "version": 1,
+  "permissions": [
+    {
+      "key": "re-schedule"
+    },
+    {
+      "key": "update"
+    }
+  ],
+  "created": "2019-12-12T00:00:00-05:00",
+  "modified": "2019-12-12T00:00:00-05:00"
+},
+{
+  "key": "call-takers",
+  "version": 1,
+  "permissions": [
+    {
+      "key": "schedule-pickup"
+    },
+    {
+      "key": "update-run"
+    }
+  ],
+  "created": "2019-12-12T00:00:00-05:00",
+  "modified": "2019-12-12T00:00:00-05:00"
+}]
