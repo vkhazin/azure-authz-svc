@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Azure.Cosmos;
 
 namespace AzureAuthorizationFunctionApp
 {
@@ -25,9 +22,6 @@ public static string CosmosDbEndpointUri =  Environment.GetEnvironmentVariable("
         public static string UserRolesPermissionsContainerId = Environment.GetEnvironmentVariable("UserRolesPermissionsContainerId");
 #endif
 
-
-
-
-
+       
     }
 }

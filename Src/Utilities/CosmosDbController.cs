@@ -7,7 +7,7 @@ using AzureAuthorizationFunctionApp.Models;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Logging;
 
-namespace AzureAuthorizationFunctionApp.Controllers
+namespace AzureAuthorizationFunctionApp.Utilities
 {
     /// <summary>A class to manage the CosmosDb operations</summary>
     public class CosmosDbController
