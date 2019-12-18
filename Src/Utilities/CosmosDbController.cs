@@ -19,16 +19,15 @@ namespace AzureAuthorizationFunctionApp.Utilities
         private Database _database;
         /// <summary>The CosmosDb container reference</summary>
         private Container _container;
-        /// <summary>The logger
-        /// object</summary>
-        private ILogger _logger;
 
         /// <summary>Initializes a new instance of the <see cref="CosmosDbController"/> class.</summary>
         /// <param name="log">The log.</param>
-        public CosmosDbController(ILogger log)
+        public CosmosDbController()
         {
-            _cosmosDbClient = new CosmosClient(ServiceConfigs.CosmosDbEndpointUri, ServiceConfigs.CosmosDbPrimaryKey);
-            _logger = log;
+            _cosmosDbClient = new CosmosClient(ServiceConfigs.CosmosDbEndpointUri, ServiceConfigs.CosmosDbPrimaryKey)
+            {
+                ClientOptions = { ConnectionMode = ConnectionMode.Direct }
+            };
         }
 
         /// <summary>Gets the user roles and permissions.</summary>

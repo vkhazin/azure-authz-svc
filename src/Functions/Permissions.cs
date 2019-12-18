@@ -55,7 +55,7 @@ namespace AzureAuthorizationFunctionApp.Functions
                     };
                 }
 
-                var cosmosDbController = new CosmosDbController(log);
+                var cosmosDbController = new CosmosDbController();
 
                 var userRolesPermissions = await cosmosDbController.GetUserRolesPermissions(userDetails);
 
